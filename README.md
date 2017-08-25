@@ -28,8 +28,4 @@ This command will create an EMR cluster with 1 master node and 5 worker nodes. N
 
 Now we are almost set up to use SparkR. All that's left to do is to enable SSH access. We can do this by going to Security Groups in the EC2 console. Under the master node, we click the Inbound tab found at the bottom. Next click Edit and we can add a rule. We would like one for SSH (Port 22) and another Custom TCP Rule for port 8787 (RStudio Server). We can set the source to customer, anywhere, or my IP.
 
-Once we have completed this, we can go to our master node with the port 8787 (`ec2-xxx-xx-xx-xxx.compute-1.amazonaws.com:8787`) in our browser.
-
-
-
-
+Once we have completed this, we can go to our master node with the port 8787 (`ec2-xxx-xx-xx-xxx.compute-1.amazonaws.com:8787`) in our browser. We can use the username and password 'hadoop'. If we wish to set up a new account, we can use the command `sudo useradd` while SSH'd into the cluster. The password can be setup using `sudo passwd`.
