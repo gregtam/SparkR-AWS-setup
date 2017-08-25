@@ -24,7 +24,7 @@ Name="Install RStudio" --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole,KeyN
 --region <region_name>
 ```
 
-This command will create an EMR cluster with 1 master node and 5 worker nodes. Note that we will need to fill in `key_pair_name` and `region_name` with the desired key pair and region. We should fill in `key_pair_name` with the name of the key pair as shown in the EC2 console and not the name of the pem file that is on your computer.
+This command will create an EMR cluster with 1 master node and 5 worker nodes. Note that we will need to fill in `key_pair_name` and `region_name` with the desired key pair and region. Sometimes this will throw a bootstrap error, which we will see in the EMR console. If that happens, just run the command again until it works. We should fill in `key_pair_name` with the name of the key pair as shown in the EC2 console and not the name of the pem file that is on your computer.
 
 Now we are almost set up to use SparkR. All that's left to do is to enable SSH access. We can do this by going to Security Groups in the EC2 console. Under the master node, we click the Inbound tab found at the bottom. Next click Edit and we can add a rule. We would like one for SSH (Port 22) and another Custom TCP Rule for port 8787 (RStudio Server). We can set the source to customer, anywhere, or my IP.
 
